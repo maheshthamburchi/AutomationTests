@@ -1,12 +1,16 @@
 package com.launching;
 
+import java.io.FileReader;
+import java.io.Reader;
 import java.util.Set;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
+//import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+
+import com.opencsv.CSVReader;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -21,8 +25,18 @@ public class amazonMobile {
 		drive.manage().window().maximize();
 		drive.get("https://www.amazon.in");
 		Thread.sleep(4000);
+		String path = "C:\\Users\\RAJESHT\\Desktop\\samsung.csv";
 		drive.findElement(By.id("searchDropdownBox")).sendKeys("elec");
-		drive.findElement(By.id("twotabsearchtextbox")).sendKeys("Samsung Galaxy M53 5G");
+		Thread.sleep(4000);
+		CSVReader reader = new CSVReader(new FileReader(path));
+		String[] cell;
+		while ((cell= reader.readNext()) !=null)
+		{
+			String item = cell[0];
+				
+		drive.findElement(By.id("twotabsearchtextbox")).sendKeys(item);
+		}
+		
 		drive.findElement(By.id("nav-search-submit-button")).click();
 		Thread.sleep(4000);
 		drive.findElement(By.xpath("(//span[contains(text(),'Samsung Galaxy M53 5G (Mystique Green, 6GB, 128GB Storage)')])[1]")).click();
