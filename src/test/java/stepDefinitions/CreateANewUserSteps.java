@@ -11,7 +11,7 @@ public class CreateANewUserSteps
 	@Given("User navigates to Create a New Page")
 	public void user_navigates_to_create_a_new_page() 
 	{
-		canp=new CreateANewUserPage(BaseClass.getDriver())
+		canp=new CreateANewUserPage(BaseClass.getDriver());
 	}
 
 	@Then("User should handle the Popup Alert window")
@@ -32,11 +32,6 @@ public class CreateANewUserSteps
 	    
 	}
 
-	@Then("User should verify the Page Title as {string}")
-	public void user_should_verify_the_page_title_as(String string)
-	{
-	    
-	}
 
 	@Then("User should verify the page is landed to {string}")
 	public void user_should_verify_the_page_is_landed_to(String string) 
@@ -58,6 +53,18 @@ public class CreateANewUserSteps
 
 	@Then("User should click on Create account button")
 	public void user_should_click_on_create_account_button() 
+	{
+	    
+	}
+	
+	@Then("User should verify the Page Title as of {string}")
+	public void user_should_verify_the_page_title_as_of(String string) 
+	{
+	    
+	}
+	
+	@Then("User should click on Submit button")
+	public void user_should_click_on_submit_button() 
 	{
 	    
 	}
@@ -85,6 +92,7 @@ public class CreateANewUserSteps
 	{
 	   
 	}
+	
 
 	@Then("User should verify the page title as {string}")
 	public void user_should_verify_the_page_title_as(String string)
