@@ -1,9 +1,17 @@
 package pageObjects;
 
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import factory.BaseClass;
 
 public class CreateANewUserPage extends BasePage
 {
@@ -15,29 +23,52 @@ public class CreateANewUserPage extends BasePage
 	}
 	
 
-@FindBy(xpath="//div[@id='header-offer-bar']")
+//@FindBy(xpath="//div[@id='header-offer-bar']")
+//@CacheLookup
+//WebElement headerofferbar;
+@FindBy(xpath = "//button[(text()='Accept All')]")
 @CacheLookup
-WebElement headerofferbar;
+WebElement accept_Coockie;
 
+public void accept_All() 
+{
+	accept_Coockie.click();
+	
+}
+	
 @FindBy(xpath="//span[@id='sign-in-toggle']")
 @CacheLookup
 WebElement signIn;
 
-@FindBy(xpath="//html")
-@CacheLookup
-WebElement htmlElement;
+public void ClickOn_signIn()
+{
+	
+	signIn.click();
+}
+@FindBy(xpath="//li[@id='sign-in']//a[normalize-space()='Create Account']") 
+@CacheLookup private 
+WebElement createAccount_Link;
 
-@FindBy(xpath="//body")
-@CacheLookup
-WebElement bodyElement;
+public void ClickOn_CreateAccount_Link() 
+{
+	createAccount_Link.click();
+}
 
 @FindBy(xpath="//span[normalize-space()='Why you should create an account']")
 @CacheLookup
 WebElement whyYouShouldCreateAnAccou;
 
+public boolean verify_Question_Text()
+{
+	boolean question_Status = whyYouShouldCreateAnAccou.isDisplayed();
+	return question_Status;
+}
+
+
+
 @FindBy(xpath="//input[@role='main']")
 @CacheLookup
-WebElement main;
+WebElement first_Name;
 
 @FindBy(xpath="//input[@formcontrolname='lastName']")
 @CacheLookup
@@ -81,6 +112,9 @@ public boolean acknowledgment()
 	boolean status = thankYouForRegistration.isDisplayed();
 	return status;
 }
+
+
 }
+
 
 

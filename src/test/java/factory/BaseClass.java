@@ -40,7 +40,7 @@ public static WebDriver initilizeBrowser() throws IOException
 	}
 	
 	 driver.manage().deleteAllCookies(); 
-	 driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+	 driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 	 
 	 return driver;
 	 
@@ -54,7 +54,7 @@ public static WebDriver getDriver()
 
 public static Properties getProperties() throws IOException
 {		 
-    FileReader file=new FileReader(System.getProperty("user.dir")+"\\src\\test\\resources\\config.properties");
+    FileReader file=new FileReader("C:\\Users\\bhanu\\git\\ThermoFisherScientific\\src\\main\\java\\config.properties");
    		
     p=new Properties();
 	p.load(file);
