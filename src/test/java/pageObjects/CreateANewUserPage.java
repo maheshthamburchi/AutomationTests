@@ -75,4 +75,11 @@ WebElement submit;
 @CacheLookup
 WebElement thankYouForRegistration;
 	
+public boolean acknowledgment()
+{
+	boolean status = thankYouForRegistration.isDisplayed();
+	return status;
 }
+}
+
+
