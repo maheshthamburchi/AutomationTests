@@ -68,31 +68,42 @@ public boolean verify_Question_Text()
 
 @FindBy(xpath="//input[@role='main']")
 @CacheLookup
-WebElement first_Name;
+public WebElement first_Name;
 
 @FindBy(xpath="//input[@formcontrolname='lastName']")
 @CacheLookup
-WebElement lastName;
+public WebElement lastName;
 
 @FindBy(xpath="//input[@formcontrolname='email']")
 @CacheLookup
-WebElement email;
+public WebElement email;
 
 @FindBy(xpath="//input[@id='reg-form-password']")
 @CacheLookup
-WebElement regformpassword;
+public WebElement regformpassword;
 
 @FindBy(xpath="//div[@class='placeholder bold']")
 @CacheLookup
 WebElement country_India;
 
-@FindBy(xpath="//div[@class='consent-container ng-touched ng-pristine ng-invalid']//div[1]//label[1]//span[1]")
+@FindBy(xpath="(//span[@class='checkmark'])[2]")
 @CacheLookup
 WebElement radio_no;
+
+public void radio_Button_NO()
+{
+	radio_no.click();
+}
+
 
 @FindBy(xpath="//button[@id='create-account-button']")
 @CacheLookup
 WebElement createAccount;
+
+public void createAccount_Button()
+{
+	createAccount.click();
+}
 
 @FindBy(xpath="//input[@name='otpCode']")
 @CacheLookup

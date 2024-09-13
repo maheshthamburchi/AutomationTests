@@ -4,6 +4,7 @@ import java.util.Map;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
 import factory.BaseClass;
@@ -31,9 +32,7 @@ public class CreateANewUserSteps
 	@Then("User should click on Sign in button")
 	public void user_should_click_on_sign_in_button() throws InterruptedException 
 	{
-		
-		
-	   canp.ClickOn_signIn();
+		canp.ClickOn_signIn();
 	   System.out.println("User clicked on sign in **********");
 	}
 
@@ -57,59 +56,75 @@ public class CreateANewUserSteps
 	@When("User should enter the following details to create a New User")
 	public void user_should_enter_the_following_details_to_create_a_new_user(io.cucumber.datatable.DataTable dataTable)
 	{
-//		for (Map<String, String> row : dataTable.asMaps(String.class, String.class)) {
-//            String field = row.get("Fields");
-//            String value = row.get("Values");
-//
-//            // Find the corresponding input field by its name and enter the value
-//            WebElement inputField = BaseClass.getDriver().findElement(By.name(field));
-//            inputField.sendKeys(value);
-		for (Map<String, String> row : dataTable.asMaps(String.class, String.class)) {
-            String fieldName = row.get("First Name");
-            String value = row.get("User Name");
+	/*	for (Map<String, String> row : dataTable.asMaps(String.class, String.class))
+		{
+            String field = row.get("Fields");
+            String value = row.get("Values");
+            
+            WebElement inputField1=canp.first_Name;
+            inputField1.sendKeys(value, Keys.TAB);
+            
+            WebElement inputField2=canp.lastName;
+            inputField1.sendKeys(value, Keys.TAB);
+
+            WebElement inputField3=canp.email;
+            inputField1.sendKeys(value, Keys.TAB);
+            
+            WebElement inputField4=canp.regformpassword;
+            inputField1.sendKeys(value, Keys.TAB);
+                        
+            // Find the corresponding input field by its name and enter the value
+            // WebElement inputField = BaseClass.getDriver().findElement(By.name(field));
+            //inputField.sendKeys(value);
+		}*/
+		
+		
+		for (Map<String, String> row : dataTable.asMaps(String.class, String.class)) 
+		{
+            String fieldName = row.get("Fields");
+            String value = row.get("Values");
 
             // Find the input field by its label and enter the value
             WebElement inputField;
-            switch (fieldName) {
-                case "First Name":
-                	
-                	inputField = BaseClass.getDriver().findElement(By.xpath("//input[@role='main']")); // Replace with your actual locator
+            switch (fieldName) 
+            {
+                case "First name":
+                	 inputField=canp.first_Name;
+                    //inputField = BaseClass.getDriver().findElement(By.xpath("//input[@role='main']")); // Replace with your actual locator
                     break;
-//                case "Last Name":
-//                    inputField = driver.findElement(By.name("lastName")); // Replace with your actual locator
-//                    break;
-//                case "Email Address":
-//                    inputField = driver.findElement(By.name("email")); // Replace with your actual locator
-//                    break;
-//                case "Re-enter Email Address":
-//                    inputField = driver.findElement(By.name("reenterEmail")); // Replace with your actual locator
-//                    break;
-//                case "Password":
-//                    inputField = driver.findElement(By.name("password")); // Replace with your actual locator
-//                    break;
-//                case "Birth-date":
-//                    inputField = driver.findElement(By.name("birthdate")); // Replace with your actual locator
-//                    break;
+                case "Last name":
+                    inputField = canp.lastName; // Replace with your actual locator
+                    break;
+                case "Email":
+                    inputField = canp.email; // Replace with your actual locator
+                    break;
+                case "Password":
+                    inputField = canp.regformpassword; // Replace with your actual locator
+                    break;
                 default:
                     throw new IllegalArgumentException("Unexpected field name: " + fieldName);
             }
-            inputField.sendKeys(value);
+            inputField.sendKeys(value, Keys.TAB);
         }    
-		
+		System.out.println(Keys.TAB);
+        System.out.println(Keys.ARROW_RIGHT);
             System.out.println("*************All input data inserted");
-		}
+            
+         }
 	
 
 	@Then("User should select radio button")
 	public void user_should_select_radio_button() 
 	{
-	    
+	    canp.radio_Button_NO();
+	    System.out.println("User clicked on NO radio button******");
 	}
 
 	@Then("User should click on Create account button")
 	public void user_should_click_on_create_account_button() 
 	{
-	    
+		canp.createAccount_Button();
+	    System.out.println("User clicked on CreateAccount button******");
 	}
 	
 	@Then("User should verify the Page Title as of {string}")
