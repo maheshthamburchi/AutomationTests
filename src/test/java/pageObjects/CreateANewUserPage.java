@@ -77,6 +77,7 @@ WebElement thankYouForRegistration;
 	
 public boolean acknowledgment()
 {
+	//hi
 	boolean status = thankYouForRegistration.isDisplayed();
 	return status;
 }
