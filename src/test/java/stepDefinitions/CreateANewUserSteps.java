@@ -1,5 +1,6 @@
 package stepDefinitions;
 
+import java.util.List;
 import java.util.Map;
 
 import org.junit.Assert;
@@ -56,56 +57,59 @@ public class CreateANewUserSteps
 	@When("User should enter the following details to create a New User")
 	public void user_should_enter_the_following_details_to_create_a_new_user(io.cucumber.datatable.DataTable dataTable)
 	{
-	/*	for (Map<String, String> row : dataTable.asMaps(String.class, String.class))
-		{
-            String field = row.get("Fields");
-            String value = row.get("Values");
+		
+	Map<String, String> data = dataTable.asMap(String.class, String.class);
+	
             
             WebElement inputField1=canp.first_Name;
-            inputField1.sendKeys(value, Keys.TAB);
+            inputField1.sendKeys(data.get("Fname"), Keys.TAB);
             
             WebElement inputField2=canp.lastName;
-            inputField1.sendKeys(value, Keys.TAB);
+            inputField2.sendKeys(data.get("Last name"), Keys.TAB);
 
             WebElement inputField3=canp.email;
-            inputField1.sendKeys(value, Keys.TAB);
+            inputField3.sendKeys(data.get("Email"), Keys.TAB);
             
             WebElement inputField4=canp.regformpassword;
-            inputField1.sendKeys(value, Keys.TAB);
+            inputField4.sendKeys(data.get("Password"), Keys.TAB);
                         
             // Find the corresponding input field by its name and enter the value
             // WebElement inputField = BaseClass.getDriver().findElement(By.name(field));
             //inputField.sendKeys(value);
-		}*/
 		
 		
-		for (Map<String, String> row : dataTable.asMaps(String.class, String.class)) 
+		
+		/*for (Map<String, String> row : dataTable.asMaps(String.class, String.class)) 
 		{
             String fieldName = row.get("Fields");
             String value = row.get("Values");
-
-            // Find the input field by its label and enter the value
+           //String fieldName = row.get("Fname");
+           //String value = row.get("Testing");
             WebElement inputField;
             switch (fieldName) 
             {
-                case "First name":
+                case "Fname":
                 	 inputField=canp.first_Name;
-                    //inputField = BaseClass.getDriver().findElement(By.xpath("//input[@role='main']")); // Replace with your actual locator
+                	 inputField.sendKeys(value);
+                 //   inputField = BaseClass.getDriver().findElement(By.xpath("//input[@role='main']")); // Replace with your actual locator
                     break;
                 case "Last name":
                     inputField = canp.lastName; // Replace with your actual locator
+                    inputField.sendKeys(value);
                     break;
                 case "Email":
                     inputField = canp.email; // Replace with your actual locator
+                    inputField.sendKeys(value);
                     break;
                 case "Password":
                     inputField = canp.regformpassword; // Replace with your actual locator
+                    inputField.sendKeys(value);
                     break;
-                default:
-                    throw new IllegalArgumentException("Unexpected field name: " + fieldName);
+                //default:
+                  //  throw new IllegalArgumentException("Unexpected field name: " + fieldName);
             }
-            inputField.sendKeys(value, Keys.TAB);
-        }    
+           // inputField.sendKeys(value);
+        }  */  
 		System.out.println(Keys.TAB);
         System.out.println(Keys.ARROW_RIGHT);
             System.out.println("*************All input data inserted");
@@ -114,8 +118,9 @@ public class CreateANewUserSteps
 	
 
 	@Then("User should select radio button")
-	public void user_should_select_radio_button() 
+	public void user_should_select_radio_button() throws Exception 
 	{
+		canp.scrollToView(canp.createAccount);
 	    canp.radio_Button_NO();
 	    System.out.println("User clicked on NO radio button******");
 	}

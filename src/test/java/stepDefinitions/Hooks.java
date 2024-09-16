@@ -20,12 +20,10 @@ public class Hooks extends BaseClass
 		p=BaseClass.getProperties();
 		driver.get(p.getProperty("appURL"));
 		driver.manage().window().maximize();
-   
-   			
-	}
+   }
 		
    
-   @After
+  // @After
    public void tearDown(Scenario scenario) 
    {
        		

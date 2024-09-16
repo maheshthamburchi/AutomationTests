@@ -8,11 +8,11 @@ Feature: Creating a New User
     Then User should verify the Page Title as of "thermofisher.com Registration"
     Then User should verify the page is landed to "Why you should create an account page"
     When User should enter the following details to create a New User
-      | Fields     | Values                          |
-      | First name | Testing                         |
-      | Last name  |                               1 |
-      | Email      | thermotesting001@mailinator.com |
-      | Password   | Test@123                        |
+      #  | Fields    | Values                          |
+      | Fname     | Testing                         |
+      | Last name |                               1 |
+      | Email     | thermotesting001@mailinator.com |
+      | Password  | Test@123                        |
     #|Country or location:|India|
     Then User should select radio button
     Then User should click on Create account button

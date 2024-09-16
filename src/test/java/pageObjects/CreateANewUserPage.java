@@ -98,7 +98,7 @@ public void radio_Button_NO()
 
 @FindBy(xpath="//button[@id='create-account-button']")
 @CacheLookup
-WebElement createAccount;
+public WebElement createAccount;
 
 public void createAccount_Button()
 {
@@ -119,9 +119,13 @@ WebElement thankYouForRegistration;
 	
 public boolean acknowledgment()
 {
-	//hi
 	boolean status = thankYouForRegistration.isDisplayed();
 	return status;
+}
+
+public void scrollToView(WebElement element) throws Exception {
+    ((JavascriptExecutor) BaseClass.getDriver()).executeScript("arguments[0].scrollIntoViewIfNeeded()", element);
+    Thread.sleep(1000);
 }
 
 
